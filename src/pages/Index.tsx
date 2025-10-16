@@ -98,7 +98,7 @@ const Index = () => {
         </div>
       </div>
 
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md border-b-4 border-primary">
+      <nav className={`sticky top-0 z-50 backdrop-blur-sm shadow-md border-b-4 border-primary transition-colors duration-300 ${isDarkTheme ? 'bg-gray-800/95' : 'bg-white/95'}`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-center gap-2 py-4 flex-wrap">
             {[
