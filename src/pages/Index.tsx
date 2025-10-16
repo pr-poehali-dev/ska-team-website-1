@@ -269,6 +269,13 @@ const Index = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
+                    <Button 
+                      className="w-full mt-2 transition-all group-hover:scale-105"
+                      onClick={() => window.open('https://t.me/+spYGPssgQFQ1ODY6', '_blank')}
+                    >
+                      <Icon name="Ticket" size={18} className="mr-2" />
+                      Купить билет
+                    </Button>
                     <div className="flex items-center gap-2 text-lg">
                       <Icon name="Shield" size={20} className="text-secondary" />
                       <span className="font-semibold">Противник:</span>
