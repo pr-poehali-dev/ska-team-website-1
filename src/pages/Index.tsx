@@ -8,6 +8,7 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState('team');
   const [selectedPlayer, setSelectedPlayer] = useState<number | null>(null);
   const [likedNews, setLikedNews] = useState<number[]>([]);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const players = [
     { number: 43, name: 'BAGA', position: 'GK', stats: { games: 34, wins: 28, saves: 94 } },
@@ -71,7 +72,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+    <div className={`min-h-screen transition-colors duration-300 ${isDarkTheme ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' : 'bg-gradient-to-br from-background via-background to-primary/5'}`}>
       <div 
         className="relative bg-cover bg-center h-[70vh] flex items-center justify-center"
         style={{
@@ -105,7 +106,8 @@ const Index = () => {
               { id: 'schedule', label: 'Расписание', icon: 'Calendar' },
               { id: 'standings', label: 'Турнирная таблица', icon: 'BarChart3' },
               { id: 'news', label: 'Новости', icon: 'Newspaper' },
-              { id: 'contacts', label: 'Контакты', icon: 'Mail' }
+              { id: 'contacts', label: 'Контакты', icon: 'Mail' },
+              { id: 'settings', label: 'Настройки', icon: 'Settings' }
             ].map((item) => (
               <Button
                 key={item.id}
@@ -363,6 +365,40 @@ const Index = () => {
                       <Icon name="Instagram" size={20} />
                     </Button>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
+        {activeSection === 'settings' && (
+          <div className="animate-fade-in">
+            <h2 className={`text-5xl font-bold mb-8 text-center ${isDarkTheme ? 'text-white' : ''}`}>Настройки</h2>
+            <Card className={`max-w-2xl mx-auto ${isDarkTheme ? 'bg-gray-800 border-gray-700' : ''}`}>
+              <CardHeader>
+                <CardTitle className={isDarkTheme ? 'text-white' : ''}>Внешний вид</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${isDarkTheme ? 'bg-gray-700' : 'bg-primary/10'}`}>
+                      <Icon name={isDarkTheme ? 'Moon' : 'Sun'} size={24} className={isDarkTheme ? 'text-yellow-400' : 'text-primary'} />
+                    </div>
+                    <div>
+                      <div className={`font-semibold ${isDarkTheme ? 'text-white' : ''}`}>Тёмная тема</div>
+                      <div className={`text-sm ${isDarkTheme ? 'text-gray-400' : 'text-muted-foreground'}`}>
+                        Переключить на {isDarkTheme ? 'светлую' : 'тёмную'} тему
+                      </div>
+                    </div>
+                  </div>
+                  <Button
+                    variant={isDarkTheme ? 'default' : 'outline'}
+                    onClick={() => setIsDarkTheme(!isDarkTheme)}
+                    className="gap-2"
+                  >
+                    <Icon name={isDarkTheme ? 'Sun' : 'Moon'} size={18} />
+                    {isDarkTheme ? 'Светлая' : 'Тёмная'}
+                  </Button>
                 </div>
               </CardContent>
             </Card>
