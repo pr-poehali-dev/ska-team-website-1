@@ -194,7 +194,7 @@ const Index = () => {
 
         {activeSection === 'standings' && (
           <div className="animate-fade-in">
-            <h2 className="text-5xl font-bold mb-8 text-center">Турнирная таблица</h2>
+            <h2 className={`text-5xl font-bold mb-8 text-center ${isDarkTheme ? 'text-white' : ''}`}>Турнирная таблица</h2>
             <Card>
               <CardContent className="p-0">
                 <div className="overflow-x-auto">
@@ -247,7 +247,7 @@ const Index = () => {
 
         {activeSection === 'schedule' && (
           <div className="animate-fade-in">
-            <h2 className="text-5xl font-bold mb-8 text-center">Расписание матчей</h2>
+            <h2 className={`text-5xl font-bold mb-8 text-center ${isDarkTheme ? 'text-white' : ''}`}>Расписание матчей</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {schedule.map((match, idx) => (
                 <Card key={idx} className="hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-primary group">
@@ -286,7 +286,7 @@ const Index = () => {
 
         {activeSection === 'news' && (
           <div className="animate-fade-in">
-            <h2 className="text-5xl font-bold mb-8 text-center">Новости команды</h2>
+            <h2 className={`text-5xl font-bold mb-8 text-center ${isDarkTheme ? 'text-white' : ''}`}>Новости команды</h2>
             <div className="space-y-6">
               {news.map((item, idx) => (
                 <Card key={idx} className="hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-t-secondary">
@@ -309,7 +309,7 @@ const Index = () => {
 
         {activeSection === 'contacts' && (
           <div className="animate-fade-in">
-            <h2 className="text-5xl font-bold mb-8 text-center">Контакты</h2>
+            <h2 className={`text-5xl font-bold mb-8 text-center ${isDarkTheme ? 'text-white' : ''}`}>Контакты</h2>
             <Card className="max-w-2xl mx-auto border-t-4 border-t-primary">
               <CardContent className="pt-6 space-y-6">
                 <div className="flex items-center gap-4">
