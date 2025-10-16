@@ -256,6 +256,8 @@ const Index = () => {
                           className={`border-b transition-colors ${
                             team.highlight
                               ? 'bg-primary/10 font-bold border-l-4 border-l-primary'
+                              : team.place >= 15
+                              ? 'bg-red-50 border-l-4 border-l-red-500 hover:bg-red-100'
                               : 'hover:bg-muted/50'
                           }`}
                         >
