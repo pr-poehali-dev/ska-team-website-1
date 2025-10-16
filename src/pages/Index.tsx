@@ -384,13 +384,12 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Icon name="Phone" size={24} className="text-primary" />
+                  <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center">
+                    <Icon name="Twitch" size={24} className="text-purple-500" />
                   </div>
                   <div>
-                    <div className="font-semibold">Twich</div>
-                    <div className="text-muted-foreground">https://www.twitch.tv/virtualfarmhockeyleague2
-</div>
+                    <div className="font-semibold">Twitch</div>
+                    <div className="text-muted-foreground">twitch.tv/virtualfarmhockeyleague2</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
