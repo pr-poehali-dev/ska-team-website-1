@@ -389,7 +389,8 @@ const Index = () => {
                   </div>
                   <div>
                     <div className="font-semibold">Twich</div>
-                    <div className="text-muted-foreground">+7 (999) 123-45-67</div>
+                    <div className="text-muted-foreground">https://www.twitch.tv/virtualfarmhockeyleague2
+</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
