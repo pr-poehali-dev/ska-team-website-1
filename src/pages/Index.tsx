@@ -126,7 +126,7 @@ const Index = () => {
       <div className="container mx-auto px-4 py-12">
         {activeSection === 'team' && (
           <div className="animate-fade-in">
-            <h2 className="text-5xl font-bold mb-8 text-center">Состав команды</h2>
+            <h2 className={`text-5xl font-bold mb-8 text-center ${isDarkTheme ? 'text-white' : ''}`}>Состав команды</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {players.map((player) => (
                 <Card 
