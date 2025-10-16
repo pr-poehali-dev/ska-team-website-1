@@ -22,7 +22,7 @@ const Index = () => {
     { number: 16, name: 'KEWS1K', position: 'PD', stats: { games: 34, goals: 12, assists: 18 } },
     { number: 12, name: 'extazy', position: 'LD', stats: { games: 5, goals: 0, assists: 2 } },
     { number: 7, name: 'F', position: 'CW', stats: { games: 34, goals: 25, assists: 15 } },
-    { number: 17, name: 'max', position: 'PW', stats: { games: 34, goals: 20, assists: 18 } }
+    { number: 17, name: 'max', position: 'PW', stats: { games: 5, goals: 1, assists: 0 } }
   ];
 
   const standings = [
