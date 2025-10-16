@@ -80,8 +80,12 @@ const Index = () => {
         }}
       >
         <div className="text-center text-white z-10 animate-fade-in">
-          <div className="mb-6 flex items-center justify-center gap-4">
-            <Icon name="Trophy" size={60} className="text-white" />
+          <div className="mb-6 flex items-center justify-center">
+            <img 
+              src="https://tickets-hockey.ru/wp-content/uploads/ubs/team/872/ska-1946-mhl.svg" 
+              alt="SKA 1946 Logo" 
+              className="w-40 h-40 drop-shadow-2xl"
+            />
           </div>
           <h1 className="text-7xl font-bold mb-4 tracking-tight">
             SKA 1946
