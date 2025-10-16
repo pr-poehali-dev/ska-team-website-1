@@ -75,7 +75,7 @@ const Index = () => {
       <div 
         className="relative bg-cover bg-center h-[70vh] flex items-center justify-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 51, 173, 0.85), rgba(239, 68, 68, 0.85)), url('https://cdn.poehali.dev/projects/65d4705d-1cbd-4e0a-bd16-24cc36c5bc00/files/cd2181da-947b-403e-ae88-ac9d98ab5945.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0, 51, 173, 0.85), rgba(239, 68, 68, 0.85)), url('https://tickets-hockey.ru/wp-content/uploads/ubs/team/872/ska-1946-mhl.svg')`,
           backgroundSize: 'cover'
         }}
       >
