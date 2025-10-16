@@ -298,13 +298,6 @@ const Index = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
-                    <Button 
-                      className="w-full mt-2 transition-all group-hover:scale-105"
-                      onClick={() => alert(`Билеты на матч с ${match.opponent} скоро в продаже!`)}
-                    >
-                      <Icon name="Ticket" size={18} className="mr-2" />
-                      Купить билет
-                    </Button>
                     <div className="flex items-center gap-2 text-lg">
                       <Icon name="Shield" size={20} className="text-secondary" />
                       <span className="font-semibold">Противник:</span>
@@ -342,26 +335,7 @@ const Index = () => {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-lg text-muted-foreground mb-4">{item.content}</p>
-                    <div className="flex gap-2">
-                      <Button 
-                        size="sm" 
-                        variant={likedNews.includes(idx) ? 'default' : 'outline'}
-                        onClick={() => {
-                          setLikedNews(prev => 
-                            prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]
-                          );
-                        }}
-                        className="gap-2 transition-all hover:scale-105"
-                      >
-                        <Icon name={likedNews.includes(idx) ? 'Heart' : 'Heart'} size={16} className={likedNews.includes(idx) ? 'fill-current' : ''} />
-                        {likedNews.includes(idx) ? 'Нравится' : 'Понравилось'}
-                      </Button>
-                      <Button size="sm" variant="outline" className="gap-2 transition-all hover:scale-105">
-                        <Icon name="Share2" size={16} />
-                        Поделиться
-                      </Button>
-                    </div>
+                    <p className="text-lg text-muted-foreground">{item.content}</p>
                   </CardContent>
                 </Card>
               ))}
