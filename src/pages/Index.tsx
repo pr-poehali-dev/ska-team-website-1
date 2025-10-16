@@ -406,18 +406,10 @@ const Index = () => {
                     <Button 
                       variant="outline" 
                       size="icon" 
-                      className="rounded-full transition-all hover:scale-110 hover:bg-sky-500 hover:text-white hover:border-sky-500"
-                      onClick={() => window.open('https://twitter.com', '_blank')}
+                      className="rounded-full transition-all hover:scale-110 hover:bg-[#0088cc] hover:text-white hover:border-[#0088cc]"
+                      onClick={() => window.open('https://t.me/SKA1946VFHL', '_blank')}
                     >
-                      <Icon name="Twitter" size={20} />
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="icon" 
-                      className="rounded-full transition-all hover:scale-110 hover:bg-blue-600 hover:text-white hover:border-blue-600"
-                      onClick={() => window.open('https://facebook.com', '_blank')}
-                    >
-                      <Icon name="Facebook" size={20} />
+                      <Icon name="Send" size={20} />
                     </Button>
                     <Button 
                       variant="outline" 
