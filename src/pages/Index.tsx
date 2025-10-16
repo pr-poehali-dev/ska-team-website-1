@@ -18,21 +18,24 @@ const Index = () => {
   ];
 
   const standings = [
-    { place: 1, team: 'Металлург Мгн', games: 38, wins: 32, losses: 6, points: 96 },
-    { place: 2, team: 'Авангард', games: 38, wins: 30, losses: 8, points: 90 },
-    { place: 3, team: 'ЦСКА', games: 38, wins: 28, losses: 10, points: 84 },
-    { place: 4, team: 'СКА СПб', games: 38, wins: 26, losses: 12, points: 78 },
-    { place: 5, team: 'Трактор', games: 38, wins: 24, losses: 14, points: 72 },
-    { place: 6, team: 'Локомотив', games: 38, wins: 22, losses: 16, points: 66 },
-    { place: 7, team: 'Салават Юлаев', games: 38, wins: 20, losses: 18, points: 60 },
-    { place: 8, team: 'Ак Барс', games: 38, wins: 18, losses: 20, points: 54 },
-    { place: 9, team: 'SKA 1946', games: 38, wins: 16, losses: 22, points: 48, highlight: true },
-    { place: 10, team: 'Динамо Мск', games: 38, wins: 14, losses: 24, points: 42 },
-    { place: 11, team: 'Сочи', games: 38, wins: 12, losses: 26, points: 36 },
-    { place: 12, team: 'Спартак', games: 38, wins: 10, losses: 28, points: 30 },
-    { place: 13, team: 'Северсталь', games: 38, wins: 8, losses: 30, points: 24 },
-    { place: 14, team: 'Витязь', games: 38, wins: 6, losses: 32, points: 18 },
-    { place: 15, team: 'Амур', games: 38, wins: 4, losses: 34, points: 12 }
+    { place: 1, team: 'Красная Армия', games: 10, wins: 8, winsOT: 0, lossesOT: 1, losses: 1, goalsFor: 23, goalsAgainst: 9, points: 17 },
+    { place: 2, team: 'Тюменский Легион', games: 11, wins: 6, winsOT: 1, lossesOT: 0, losses: 3, goalsFor: 24, goalsAgainst: 11, points: 16 },
+    { place: 3, team: 'Сибирские снайперы', games: 12, wins: 7, winsOT: 0, lossesOT: 0, losses: 4, goalsFor: 24, goalsAgainst: 13, points: 15 },
+    { place: 4, team: 'Динамо-Шинник', games: 8, wins: 5, winsOT: 1, lossesOT: 0, losses: 1, goalsFor: 21, goalsAgainst: 10, points: 14 },
+    { place: 5, team: 'Толпар', games: 10, wins: 5, winsOT: 0, lossesOT: 0, losses: 3, goalsFor: 26, goalsAgainst: 14, points: 13 },
+    { place: 6, team: 'Стальные Лисы', games: 7, wins: 6, winsOT: 0, lossesOT: 0, losses: 1, goalsFor: 14, goalsAgainst: 6, points: 12 },
+    { place: 7, team: 'МХК Спартак', games: 5, wins: 4, winsOT: 0, lossesOT: 0, losses: 1, goalsFor: 12, goalsAgainst: 3, points: 8 },
+    { place: 8, team: 'Мамонты Югры', games: 5, wins: 3, winsOT: 1, lossesOT: 0, losses: 1, goalsFor: 10, goalsAgainst: 6, points: 8 },
+    { place: 9, team: 'Академия Михайлова', games: 7, wins: 3, winsOT: 1, lossesOT: 0, losses: 3, goalsFor: 9, goalsAgainst: 8, points: 8 },
+    { place: 10, team: 'Локо', games: 8, wins: 3, winsOT: 0, lossesOT: 1, losses: 4, goalsFor: 19, goalsAgainst: 24, points: 7 },
+    { place: 11, team: 'Омские Ястребы', games: 10, wins: 3, winsOT: 0, lossesOT: 0, losses: 7, goalsFor: 13, goalsAgainst: 18, points: 6 },
+    { place: 12, team: 'МХК Динамо СПб', games: 8, wins: 1, winsOT: 0, lossesOT: 1, losses: 4, goalsFor: 10, goalsAgainst: 17, points: 6 },
+    { place: 13, team: 'СКА 19-46', games: 7, wins: 3, winsOT: 0, lossesOT: 0, losses: 4, goalsFor: 6, goalsAgainst: 12, points: 6, highlight: true },
+    { place: 14, team: 'Кузнецкие Медведи', games: 9, wins: 2, winsOT: 0, lossesOT: 0, losses: 7, goalsFor: 7, goalsAgainst: 20, points: 4 },
+    { place: 15, team: 'Чайка', games: 4, wins: 1, winsOT: 0, lossesOT: 1, losses: 2, goalsFor: 5, goalsAgainst: 9, points: 3 },
+    { place: 16, team: 'Белые Медведи', games: 8, wins: 1, winsOT: 0, lossesOT: 0, losses: 6, goalsFor: 4, goalsAgainst: 20, points: 3 },
+    { place: 17, team: 'Крылья Советов', games: 2, wins: 1, winsOT: 0, lossesOT: 0, losses: 1, goalsFor: 2, goalsAgainst: 2, points: 2 },
+    { place: 18, team: 'Алмаз', games: 9, wins: 0, winsOT: 0, lossesOT: 0, losses: 9, goalsFor: 5, goalsAgainst: 31, points: 0 }
   ];
 
   const schedule = [
@@ -227,12 +230,16 @@ const Index = () => {
                   <table className="w-full">
                     <thead className="bg-gradient-to-r from-primary to-secondary text-white">
                       <tr>
-                        <th className="px-6 py-4 text-left">Место</th>
-                        <th className="px-6 py-4 text-left">Команда</th>
-                        <th className="px-6 py-4 text-center">И</th>
-                        <th className="px-6 py-4 text-center">В</th>
-                        <th className="px-6 py-4 text-center">П</th>
-                        <th className="px-6 py-4 text-center">Очки</th>
+                        <th className="px-4 py-4 text-left">#</th>
+                        <th className="px-4 py-4 text-left">Команда</th>
+                        <th className="px-4 py-4 text-center">И</th>
+                        <th className="px-4 py-4 text-center">В</th>
+                        <th className="px-4 py-4 text-center">ВО</th>
+                        <th className="px-4 py-4 text-center">ПО</th>
+                        <th className="px-4 py-4 text-center">П</th>
+                        <th className="px-4 py-4 text-center">ШЗ</th>
+                        <th className="px-4 py-4 text-center">ШП</th>
+                        <th className="px-4 py-4 text-center font-bold">О</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -245,12 +252,16 @@ const Index = () => {
                               : 'hover:bg-muted/50'
                           }`}
                         >
-                          <td className="px-6 py-4">{team.place}</td>
-                          <td className="px-6 py-4">{team.team}</td>
-                          <td className="px-6 py-4 text-center">{team.games}</td>
-                          <td className="px-6 py-4 text-center">{team.wins}</td>
-                          <td className="px-6 py-4 text-center">{team.losses}</td>
-                          <td className="px-6 py-4 text-center font-bold">{team.points}</td>
+                          <td className="px-4 py-4">{team.place}</td>
+                          <td className="px-4 py-4">{team.team}</td>
+                          <td className="px-4 py-4 text-center">{team.games}</td>
+                          <td className="px-4 py-4 text-center">{team.wins}</td>
+                          <td className="px-4 py-4 text-center">{team.winsOT}</td>
+                          <td className="px-4 py-4 text-center">{team.lossesOT}</td>
+                          <td className="px-4 py-4 text-center">{team.losses}</td>
+                          <td className="px-4 py-4 text-center">{team.goalsFor}</td>
+                          <td className="px-4 py-4 text-center">{team.goalsAgainst}</td>
+                          <td className="px-4 py-4 text-center font-bold">{team.points}</td>
                         </tr>
                       ))}
                     </tbody>
