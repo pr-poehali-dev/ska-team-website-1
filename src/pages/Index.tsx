@@ -113,7 +113,7 @@ const Index = () => {
                 key={item.id}
                 variant={activeSection === item.id ? 'default' : 'ghost'}
                 onClick={() => setActiveSection(item.id)}
-                className="gap-2 transition-all hover:scale-105 active:scale-95"
+                className={`gap-2 transition-all hover:scale-105 active:scale-95 ${isDarkTheme && activeSection !== item.id ? 'text-gray-300 hover:text-white' : ''}`}
               >
                 <Icon name={item.icon} size={18} />
                 {item.label}
