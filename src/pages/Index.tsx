@@ -387,9 +387,16 @@ const Index = () => {
                   <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center">
                     <Icon name="Twitch" size={24} className="text-purple-500" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <div className="font-semibold">Twitch</div>
-                    <div className="text-muted-foreground">twitch.tv/virtualfarmhockeyleague2</div>
+                    <div className="text-muted-foreground mb-2">twitch.tv/virtualfarmhockeyleague2</div>
+                    <Button 
+                      className="w-full bg-purple-500 hover:bg-purple-600 text-white gap-2"
+                      onClick={() => window.open('https://www.twitch.tv/virtualfarmhockeyleague2', '_blank')}
+                    >
+                      <Icon name="PlayCircle" size={18} />
+                      Смотреть стрим
+                    </Button>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
