@@ -88,7 +88,7 @@ const Index = () => {
           </h1>
           <p className="text-2xl mb-2 tracking-wide">VFHL | PUCK</p>
           <Badge variant="secondary" className="text-lg px-6 py-2 bg-white/20 backdrop-blur-sm border-white/30">
-            9 место в турнирной таблице
+            13 место в турнирной таблице
           </Badge>
         </div>
       </div>
