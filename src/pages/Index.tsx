@@ -18,16 +18,21 @@ const Index = () => {
   ];
 
   const standings = [
-    { place: 1, team: 'Team Alpha', games: 34, wins: 28, losses: 6, points: 84 },
-    { place: 2, team: 'Team Beta', games: 34, wins: 26, losses: 8, points: 78 },
-    { place: 3, team: 'Team Gamma', games: 34, wins: 24, losses: 10, points: 72 },
-    { place: 4, team: 'Team Delta', games: 34, wins: 22, losses: 12, points: 66 },
-    { place: 5, team: 'Team Epsilon', games: 34, wins: 20, losses: 14, points: 60 },
-    { place: 6, team: 'Team Zeta', games: 34, wins: 18, losses: 16, points: 54 },
-    { place: 7, team: 'Team Eta', games: 34, wins: 16, losses: 18, points: 48 },
-    { place: 8, team: 'Team Theta', games: 34, wins: 14, losses: 20, points: 42 },
-    { place: 9, team: 'SKA 1946', games: 34, wins: 12, losses: 22, points: 36, highlight: true },
-    { place: 10, team: 'Team Kappa', games: 34, wins: 10, losses: 24, points: 30 }
+    { place: 1, team: 'Металлург Мгн', games: 38, wins: 32, losses: 6, points: 96 },
+    { place: 2, team: 'Авангард', games: 38, wins: 30, losses: 8, points: 90 },
+    { place: 3, team: 'ЦСКА', games: 38, wins: 28, losses: 10, points: 84 },
+    { place: 4, team: 'СКА СПб', games: 38, wins: 26, losses: 12, points: 78 },
+    { place: 5, team: 'Трактор', games: 38, wins: 24, losses: 14, points: 72 },
+    { place: 6, team: 'Локомотив', games: 38, wins: 22, losses: 16, points: 66 },
+    { place: 7, team: 'Салават Юлаев', games: 38, wins: 20, losses: 18, points: 60 },
+    { place: 8, team: 'Ак Барс', games: 38, wins: 18, losses: 20, points: 54 },
+    { place: 9, team: 'SKA 1946', games: 38, wins: 16, losses: 22, points: 48, highlight: true },
+    { place: 10, team: 'Динамо Мск', games: 38, wins: 14, losses: 24, points: 42 },
+    { place: 11, team: 'Сочи', games: 38, wins: 12, losses: 26, points: 36 },
+    { place: 12, team: 'Спартак', games: 38, wins: 10, losses: 28, points: 30 },
+    { place: 13, team: 'Северсталь', games: 38, wins: 8, losses: 30, points: 24 },
+    { place: 14, team: 'Витязь', games: 38, wins: 6, losses: 32, points: 18 },
+    { place: 15, team: 'Амур', games: 38, wins: 4, losses: 34, points: 12 }
   ];
 
   const schedule = [
