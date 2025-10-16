@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -8,7 +8,14 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState('team');
   const [selectedPlayer, setSelectedPlayer] = useState<number | null>(null);
   const [likedNews, setLikedNews] = useState<number[]>([]);
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(() => {
+    const saved = localStorage.getItem('darkTheme');
+    return saved === 'true';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('darkTheme', isDarkTheme.toString());
+  }, [isDarkTheme]);
 
   const players = [
     { number: 43, name: 'BAGA', position: 'GK', stats: { games: 34, wins: 28, saves: 94 } },
