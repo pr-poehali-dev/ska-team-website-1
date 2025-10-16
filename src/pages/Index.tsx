@@ -178,6 +178,34 @@ const Index = () => {
                         </>
                       )}
                     </div>
+                    {selectedPlayer === player.number && (
+                      <div className="mt-4 pt-4 border-t flex gap-2">
+                        <Button 
+                          size="sm" 
+                          variant="default"
+                          className="flex-1 gap-2 transition-all hover:scale-105"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            alert(`Просмотр профиля игрока ${player.name}`);
+                          }}
+                        >
+                          <Icon name="UserCircle" size={16} />
+                          Profile
+                        </Button>
+                        <Button 
+                          size="sm" 
+                          variant="secondary"
+                          className="flex-1 gap-2 transition-all hover:scale-105"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            alert(`Детальная статистика игрока ${player.name}`);
+                          }}
+                        >
+                          <Icon name="BarChart2" size={16} />
+                          Stats
+                        </Button>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               ))}
