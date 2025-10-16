@@ -18,7 +18,7 @@ const Index = () => {
   }, [isDarkTheme]);
 
   const players = [
-    { number: 43, name: 'BAGA', position: 'GK', stats: { games: 34, wins: 28, saves: 94 } },
+    { number: 43, name: 'BAGA', position: 'GK', stats: { games: 2, wins: 0, saves: 50 } },
     { number: 16, name: 'KEWS1K', position: 'PD', stats: { games: 3, goals: 0, assists: 0 } },
     { number: 12, name: 'extazy', position: 'LD', stats: { games: 5, goals: 0, assists: 2 } },
     { number: 7, name: 'F', position: 'CW', stats: { games: 5, goals: 4, assists: 3 } },
