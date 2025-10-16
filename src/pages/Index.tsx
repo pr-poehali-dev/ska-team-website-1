@@ -125,8 +125,7 @@ const Index = () => {
               {players.map((player) => (
                 <Card 
                   key={player.number}
-                  className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-t-primary cursor-pointer"
-                  onClick={() => setSelectedPlayer(selectedPlayer === player.number ? null : player.number)}
+                  className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-t-primary"
                 >
                   <CardHeader className="bg-gradient-to-r from-primary to-secondary text-white">
                     <div className="flex items-center justify-between">
@@ -144,23 +143,10 @@ const Index = () => {
                     </div>
                   </CardHeader>
                   <CardContent className="pt-6">
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="mb-4">
                       <h3 className="text-2xl font-bold">{player.name}</h3>
-                      <Button 
-                        size="sm" 
-                        variant="outline"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedPlayer(selectedPlayer === player.number ? null : player.number);
-                        }}
-                        className="transition-transform hover:scale-110"
-                      >
-                        <Icon name={selectedPlayer === player.number ? 'ChevronUp' : 'ChevronDown'} size={16} />
-                      </Button>
                     </div>
-                    <div className={`space-y-2 transition-all duration-300 overflow-hidden ${
-                      selectedPlayer === player.number ? 'max-h-96 opacity-100' : 'max-h-24 opacity-60'
-                    }`}>
+                    <div className="space-y-2">
                       {player.position === 'GK' ? (
                         <>
                           <div className="flex justify-between">
@@ -193,34 +179,6 @@ const Index = () => {
                         </>
                       )}
                     </div>
-                    {selectedPlayer === player.number && (
-                      <div className="mt-4 pt-4 border-t flex gap-2">
-                        <Button 
-                          size="sm" 
-                          variant="default"
-                          className="flex-1 gap-2 transition-all hover:scale-105"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            alert(`Просмотр профиля игрока ${player.name}`);
-                          }}
-                        >
-                          <Icon name="UserCircle" size={16} />
-                          Profile
-                        </Button>
-                        <Button 
-                          size="sm" 
-                          variant="secondary"
-                          className="flex-1 gap-2 transition-all hover:scale-105"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            alert(`Детальная статистика игрока ${player.name}`);
-                          }}
-                        >
-                          <Icon name="BarChart2" size={16} />
-                          Stats
-                        </Button>
-                      </div>
-                    )}
                   </CardContent>
                 </Card>
               ))}
