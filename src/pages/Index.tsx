@@ -39,10 +39,17 @@ const Index = () => {
   ];
 
   const schedule = [
-    { date: '2025-10-20', opponent: 'Team Alpha', location: 'Home', time: '19:00' },
-    { date: '2025-10-24', opponent: 'Team Beta', location: 'Away', time: '18:30' },
-    { date: '2025-10-27', opponent: 'Team Gamma', location: 'Home', time: '20:00' },
-    { date: '2025-11-02', opponent: 'Team Delta', location: 'Away', time: '19:30' }
+    { date: '2025-10-25', opponent: 'Белые Медведи', location: 'Home', time: '17:30' },
+    { date: '2025-10-26', opponent: 'Красная Армия', location: 'Home', time: '17:30' },
+    { date: '2025-10-27', opponent: 'Сибирские снайперы', location: 'Home', time: '17:30' },
+    { date: '2025-10-29', opponent: 'Омские Ястребы', location: 'Away', time: '16:30' },
+    { date: '2025-10-30', opponent: 'Толпар', location: 'Away', time: '16:30' },
+    { date: '2025-10-31', opponent: 'Академия Михайлова', location: 'Away', time: '16:30' },
+    { date: '2025-11-07', opponent: 'Стальные Лисы', location: 'Home', time: '18:30' },
+    { date: '2025-11-15', opponent: 'Локо', location: 'Home', time: '16:30' },
+    { date: '2025-11-18', opponent: 'Шинник', location: 'Away', time: '18:30' },
+    { date: '2025-11-22', opponent: 'Кузнецкие Медведи', location: 'Home', time: '17:30' },
+    { date: '2025-11-23', opponent: 'Алмаз', location: 'Away', time: '16:30' }
   ];
 
   const news = [
