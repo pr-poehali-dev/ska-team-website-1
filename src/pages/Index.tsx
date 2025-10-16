@@ -6,6 +6,8 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('team');
+  const [selectedPlayer, setSelectedPlayer] = useState<number | null>(null);
+  const [likedNews, setLikedNews] = useState<number[]>([]);
 
   const players = [
     { number: 43, name: 'BAGA', position: 'GK', stats: { games: 34, wins: 28, saves: 94 } },
@@ -90,7 +92,7 @@ const Index = () => {
                 key={item.id}
                 variant={activeSection === item.id ? 'default' : 'ghost'}
                 onClick={() => setActiveSection(item.id)}
-                className="gap-2"
+                className="gap-2 transition-all hover:scale-105 active:scale-95"
               >
                 <Icon name={item.icon} size={18} />
                 {item.label}
@@ -108,7 +110,8 @@ const Index = () => {
               {players.map((player) => (
                 <Card 
                   key={player.number}
-                  className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-t-primary"
+                  className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-t-primary cursor-pointer"
+                  onClick={() => setSelectedPlayer(selectedPlayer === player.number ? null : player.number)}
                 >
                   <CardHeader className="bg-gradient-to-r from-primary to-secondary text-white">
                     <div className="flex items-center justify-between">
@@ -126,8 +129,23 @@ const Index = () => {
                     </div>
                   </CardHeader>
                   <CardContent className="pt-6">
-                    <h3 className="text-2xl font-bold mb-4">{player.name}</h3>
-                    <div className="space-y-2">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-2xl font-bold">{player.name}</h3>
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedPlayer(selectedPlayer === player.number ? null : player.number);
+                        }}
+                        className="transition-transform hover:scale-110"
+                      >
+                        <Icon name={selectedPlayer === player.number ? 'ChevronUp' : 'ChevronDown'} size={16} />
+                      </Button>
+                    </div>
+                    <div className={`space-y-2 transition-all duration-300 overflow-hidden ${
+                      selectedPlayer === player.number ? 'max-h-96 opacity-100' : 'max-h-24 opacity-60'
+                    }`}>
                       {player.position === 'GK' ? (
                         <>
                           <div className="flex justify-between">
@@ -215,7 +233,7 @@ const Index = () => {
             <h2 className="text-5xl font-bold mb-8 text-center">Расписание матчей</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {schedule.map((match, idx) => (
-                <Card key={idx} className="hover:shadow-lg transition-shadow border-l-4 border-l-primary">
+                <Card key={idx} className="hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-primary group">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
                       <Icon name="CalendarDays" size={24} className="text-primary" />
@@ -227,6 +245,13 @@ const Index = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
+                    <Button 
+                      className="w-full mt-2 transition-all group-hover:scale-105"
+                      onClick={() => alert(`Билеты на матч с ${match.opponent} скоро в продаже!`)}
+                    >
+                      <Icon name="Ticket" size={18} className="mr-2" />
+                      Купить билет
+                    </Button>
                     <div className="flex items-center gap-2 text-lg">
                       <Icon name="Shield" size={20} className="text-secondary" />
                       <span className="font-semibold">Противник:</span>
@@ -254,7 +279,7 @@ const Index = () => {
             <h2 className="text-5xl font-bold mb-8 text-center">Новости команды</h2>
             <div className="space-y-6">
               {news.map((item, idx) => (
-                <Card key={idx} className="hover:shadow-lg transition-shadow border-t-4 border-t-secondary">
+                <Card key={idx} className="hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-t-secondary">
                   <CardHeader>
                     <div className="flex items-start justify-between gap-4">
                       <CardTitle className="text-2xl">{item.title}</CardTitle>
@@ -264,7 +289,26 @@ const Index = () => {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-lg text-muted-foreground">{item.content}</p>
+                    <p className="text-lg text-muted-foreground mb-4">{item.content}</p>
+                    <div className="flex gap-2">
+                      <Button 
+                        size="sm" 
+                        variant={likedNews.includes(idx) ? 'default' : 'outline'}
+                        onClick={() => {
+                          setLikedNews(prev => 
+                            prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]
+                          );
+                        }}
+                        className="gap-2 transition-all hover:scale-105"
+                      >
+                        <Icon name={likedNews.includes(idx) ? 'Heart' : 'Heart'} size={16} className={likedNews.includes(idx) ? 'fill-current' : ''} />
+                        {likedNews.includes(idx) ? 'Нравится' : 'Понравилось'}
+                      </Button>
+                      <Button size="sm" variant="outline" className="gap-2 transition-all hover:scale-105">
+                        <Icon name="Share2" size={16} />
+                        Поделиться
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -306,13 +350,28 @@ const Index = () => {
                 </div>
                 <div className="pt-4 border-t">
                   <div className="flex gap-4 justify-center">
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="rounded-full transition-all hover:scale-110 hover:bg-sky-500 hover:text-white hover:border-sky-500"
+                      onClick={() => window.open('https://twitter.com', '_blank')}
+                    >
                       <Icon name="Twitter" size={20} />
                     </Button>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="rounded-full transition-all hover:scale-110 hover:bg-blue-600 hover:text-white hover:border-blue-600"
+                      onClick={() => window.open('https://facebook.com', '_blank')}
+                    >
                       <Icon name="Facebook" size={20} />
                     </Button>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="rounded-full transition-all hover:scale-110 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:border-pink-500"
+                      onClick={() => window.open('https://instagram.com', '_blank')}
+                    >
                       <Icon name="Instagram" size={20} />
                     </Button>
                   </div>
