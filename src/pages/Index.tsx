@@ -97,19 +97,7 @@ const Index = () => {
     { place: 18, team: 'Алмаз', games: 9, wins: 0, winsOT: 0, lossesOT: 0, losses: 9, goalsFor: 5, goalsAgainst: 31, points: 0 }
   ];
 
-  const schedule = [
-    { date: '2025-10-25', opponent: 'Белые Медведи', location: 'Home', time: '17:30' },
-    { date: '2025-10-26', opponent: 'Красная Армия', location: 'Home', time: '17:30' },
-    { date: '2025-10-27', opponent: 'Сибирские снайперы', location: 'Home', time: '17:30' },
-    { date: '2025-10-29', opponent: 'Омские Ястребы', location: 'Away', time: '16:30' },
-    { date: '2025-10-30', opponent: 'Толпар', location: 'Away', time: '16:30' },
-    { date: '2025-10-31', opponent: 'Академия Михайлова', location: 'Away', time: '16:30' },
-    { date: '2025-11-07', opponent: 'Стальные Лисы', location: 'Home', time: '18:30' },
-    { date: '2025-11-15', opponent: 'Локо', location: 'Home', time: '16:30' },
-    { date: '2025-11-18', opponent: 'Шинник', location: 'Away', time: '18:30' },
-    { date: '2025-11-22', opponent: 'Кузнецкие Медведи', location: 'Home', time: '17:30' },
-    { date: '2025-11-23', opponent: 'Алмаз', location: 'Away', time: '16:30' }
-  ];
+  const schedule: { opponent: string; location: string; time: string }[] = [];
 
   const news = [
     {
