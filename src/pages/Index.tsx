@@ -318,16 +318,6 @@ const Index = () => {
                       </div>
                     </div>
                   </CardContent>
-                  <div className="px-6 pb-4">
-                    <Button 
-                      onClick={() => handleEditPlayer(player)}
-                      className="w-full"
-                      variant="outline"
-                    >
-                      <Icon name="Edit" size={16} className="mr-2" />
-                      Редактировать
-                    </Button>
-                  </div>
                 </Card>
               ))}
             </div>
