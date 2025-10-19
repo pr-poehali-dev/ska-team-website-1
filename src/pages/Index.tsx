@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
@@ -12,6 +15,20 @@ const Index = () => {
     const saved = localStorage.getItem('darkTheme');
     return saved === 'true';
   });
+  const [editingPlayer, setEditingPlayer] = useState<any>(null);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [playersData, setPlayersData] = useState([
+    { number: 43, name: 'BAGA', position: 'Вратарь', age: 22, height: 185, weight: 82, stats: { games: 2, wins: 0, saves: 50 } },
+    { number: 16, name: 'KEWS1K', position: 'Защитник', age: 20, height: 180, weight: 78, stats: { games: 3, goals: 0, assists: 0 } },
+    { number: 12, name: 'extazy', position: 'Защитник', age: 21, height: 182, weight: 80, stats: { games: 5, goals: 0, assists: 2 } },
+    { number: 7, name: 'F', position: 'Нападающий', age: 23, height: 178, weight: 75, stats: { games: 5, goals: 4, assists: 3 } },
+    { number: 17, name: 'max', position: 'Нападающий', age: 19, height: 176, weight: 73, stats: { games: 5, goals: 1, assists: 0 } },
+    { number: 97, name: 'vasilev', position: 'Нападающий', age: 22, height: 183, weight: 81, stats: { games: 2, goals: 1, assists: 1 } },
+    { number: 24, name: 'Ivanov', position: 'Защитник', age: 24, height: 188, weight: 85, stats: { games: 4, goals: 0, assists: 3 } },
+    { number: 91, name: 'Petrov', position: 'Нападающий', age: 20, height: 175, weight: 72, stats: { games: 5, goals: 2, assists: 2 } },
+    { number: 33, name: 'Smirnov', position: 'Вратарь', age: 25, height: 190, weight: 88, stats: { games: 3, wins: 1, saves: 65 } },
+    { number: 8, name: 'Kozlov', position: 'Нападающий', age: 21, height: 179, weight: 76, stats: { games: 4, goals: 3, assists: 1 } }
+  ]);
 
   useEffect(() => {
     localStorage.setItem('darkTheme', isDarkTheme.toString());
@@ -25,18 +42,30 @@ const Index = () => {
     { number: 17, name: 'max', position: 'PW', stats: { games: 5, goals: 1, assists: 0 } }
   ];
 
-  const allPlayers = [
-    { number: 43, name: 'BAGA', position: 'Вратарь', age: 22, height: 185, weight: 82, stats: { games: 2, wins: 0, saves: 50 } },
-    { number: 16, name: 'KEWS1K', position: 'Защитник', age: 20, height: 180, weight: 78, stats: { games: 3, goals: 0, assists: 0 } },
-    { number: 12, name: 'extazy', position: 'Защитник', age: 21, height: 182, weight: 80, stats: { games: 5, goals: 0, assists: 2 } },
-    { number: 7, name: 'F', position: 'Нападающий', age: 23, height: 178, weight: 75, stats: { games: 5, goals: 4, assists: 3 } },
-    { number: 17, name: 'max', position: 'Нападающий', age: 19, height: 176, weight: 73, stats: { games: 5, goals: 1, assists: 0 } },
-    { number: 97, name: 'vasilev', position: 'Нападающий', age: 22, height: 183, weight: 81, stats: { games: 2, goals: 1, assists: 1 } },
-    { number: 24, name: 'Ivanov', position: 'Защитник', age: 24, height: 188, weight: 85, stats: { games: 4, goals: 0, assists: 3 } },
-    { number: 91, name: 'Petrov', position: 'Нападающий', age: 20, height: 175, weight: 72, stats: { games: 5, goals: 2, assists: 2 } },
-    { number: 33, name: 'Smirnov', position: 'Вратарь', age: 25, height: 190, weight: 88, stats: { games: 3, wins: 1, saves: 65 } },
-    { number: 8, name: 'Kozlov', position: 'Нападающий', age: 21, height: 179, weight: 76, stats: { games: 4, goals: 3, assists: 1 } }
-  ];
+  const handleEditPlayer = (player: any) => {
+    setEditingPlayer({ ...player });
+    setIsEditDialogOpen(true);
+  };
+
+  const handleSavePlayer = () => {
+    setPlayersData(playersData.map(p => 
+      p.number === editingPlayer.number ? editingPlayer : p
+    ));
+    setIsEditDialogOpen(false);
+    setEditingPlayer(null);
+  };
+
+  const handleInputChange = (field: string, value: any) => {
+    if (field.includes('stats.')) {
+      const statField = field.split('.')[1];
+      setEditingPlayer({
+        ...editingPlayer,
+        stats: { ...editingPlayer.stats, [statField]: Number(value) }
+      });
+    } else {
+      setEditingPlayer({ ...editingPlayer, [field]: value });
+    }
+  };
 
   const gamePhotos = [
     { id: 1, url: 'https://cdn.poehali.dev/files/4a8e9ae1-08db-4343-8aa1-b25ad5210ba8.png', title: 'Командное фото на льду', date: '2025-10-19' }
@@ -232,7 +261,7 @@ const Index = () => {
           <div className="animate-fade-in">
             <h2 className={`text-5xl font-bold mb-8 text-center ${isDarkTheme ? 'text-white' : ''}`}>Игроки</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {allPlayers.map((player) => (
+              {playersData.map((player) => (
                 <Card 
                   key={player.number}
                   className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-t-primary overflow-hidden"
@@ -307,6 +336,16 @@ const Index = () => {
                       </div>
                     </div>
                   </CardContent>
+                  <div className="px-6 pb-4">
+                    <Button 
+                      onClick={() => handleEditPlayer(player)}
+                      className="w-full"
+                      variant="outline"
+                    >
+                      <Icon name="Edit" size={16} className="mr-2" />
+                      Редактировать
+                    </Button>
+                  </div>
                 </Card>
               ))}
             </div>
@@ -577,6 +616,142 @@ const Index = () => {
           <p className="text-sm text-white/60 mt-4">© 2025 SKA 1946. Все права защищены.</p>
         </div>
       </footer>
+
+      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Редактирование игрока</DialogTitle>
+          </DialogHeader>
+          {editingPlayer && (
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="number">Номер</Label>
+                  <Input
+                    id="number"
+                    type="number"
+                    value={editingPlayer.number}
+                    onChange={(e) => handleInputChange('number', Number(e.target.value))}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="name">Имя</Label>
+                  <Input
+                    id="name"
+                    value={editingPlayer.name}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="position">Позиция</Label>
+                <Input
+                  id="position"
+                  value={editingPlayer.position}
+                  onChange={(e) => handleInputChange('position', e.target.value)}
+                />
+              </div>
+
+              <div className="grid grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="age">Возраст</Label>
+                  <Input
+                    id="age"
+                    type="number"
+                    value={editingPlayer.age}
+                    onChange={(e) => handleInputChange('age', Number(e.target.value))}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="height">Рост (см)</Label>
+                  <Input
+                    id="height"
+                    type="number"
+                    value={editingPlayer.height}
+                    onChange={(e) => handleInputChange('height', Number(e.target.value))}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="weight">Вес (кг)</Label>
+                  <Input
+                    id="weight"
+                    type="number"
+                    value={editingPlayer.weight}
+                    onChange={(e) => handleInputChange('weight', Number(e.target.value))}
+                  />
+                </div>
+              </div>
+
+              <div className="border-t pt-4 mt-4">
+                <h3 className="font-semibold mb-3">Статистика</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="games">Игры</Label>
+                    <Input
+                      id="games"
+                      type="number"
+                      value={editingPlayer.stats.games}
+                      onChange={(e) => handleInputChange('stats.games', e.target.value)}
+                    />
+                  </div>
+                  {editingPlayer.position === 'Вратарь' ? (
+                    <>
+                      <div className="space-y-2">
+                        <Label htmlFor="wins">Победы</Label>
+                        <Input
+                          id="wins"
+                          type="number"
+                          value={editingPlayer.stats.wins}
+                          onChange={(e) => handleInputChange('stats.wins', e.target.value)}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="saves">% Отражений</Label>
+                        <Input
+                          id="saves"
+                          type="number"
+                          value={editingPlayer.stats.saves}
+                          onChange={(e) => handleInputChange('stats.saves', e.target.value)}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="space-y-2">
+                        <Label htmlFor="goals">Голы</Label>
+                        <Input
+                          id="goals"
+                          type="number"
+                          value={editingPlayer.stats.goals}
+                          onChange={(e) => handleInputChange('stats.goals', e.target.value)}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="assists">Передачи</Label>
+                        <Input
+                          id="assists"
+                          type="number"
+                          value={editingPlayer.stats.assists}
+                          onChange={(e) => handleInputChange('stats.assists', e.target.value)}
+                        />
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setIsEditDialogOpen(false)}>
+              Отмена
+            </Button>
+            <Button onClick={handleSavePlayer}>
+              Сохранить
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
