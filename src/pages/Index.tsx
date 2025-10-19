@@ -8,7 +8,10 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [activeSection, setActiveSection] = useState('team');
+  const [activeSection, setActiveSection] = useState(() => {
+    const saved = localStorage.getItem('activeSection');
+    return saved || 'team';
+  });
   const [selectedPlayer, setSelectedPlayer] = useState<number | null>(null);
   const [likedNews, setLikedNews] = useState<number[]>([]);
   const [isDarkTheme, setIsDarkTheme] = useState(() => {
@@ -31,6 +34,10 @@ const Index = () => {
   useEffect(() => {
     localStorage.setItem('darkTheme', isDarkTheme.toString());
   }, [isDarkTheme]);
+
+  useEffect(() => {
+    localStorage.setItem('activeSection', activeSection);
+  }, [activeSection]);
 
   const players = [
     { number: 43, name: 'BAGA', position: 'GK', stats: { games: 2, wins: 0, saves: 50 } },
