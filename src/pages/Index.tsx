@@ -25,6 +25,19 @@ const Index = () => {
     { number: 17, name: 'max', position: 'PW', stats: { games: 5, goals: 1, assists: 0 } }
   ];
 
+  const allPlayers = [
+    { number: 43, name: 'BAGA', position: 'Вратарь', age: 22, height: 185, weight: 82, stats: { games: 2, wins: 0, saves: 50 } },
+    { number: 16, name: 'KEWS1K', position: 'Защитник', age: 20, height: 180, weight: 78, stats: { games: 3, goals: 0, assists: 0 } },
+    { number: 12, name: 'extazy', position: 'Защитник', age: 21, height: 182, weight: 80, stats: { games: 5, goals: 0, assists: 2 } },
+    { number: 7, name: 'F', position: 'Нападающий', age: 23, height: 178, weight: 75, stats: { games: 5, goals: 4, assists: 3 } },
+    { number: 17, name: 'max', position: 'Нападающий', age: 19, height: 176, weight: 73, stats: { games: 5, goals: 1, assists: 0 } },
+    { number: 97, name: 'vasilev', position: 'Нападающий', age: 22, height: 183, weight: 81, stats: { games: 2, goals: 1, assists: 1 } },
+    { number: 24, name: 'Ivanov', position: 'Защитник', age: 24, height: 188, weight: 85, stats: { games: 4, goals: 0, assists: 3 } },
+    { number: 91, name: 'Petrov', position: 'Нападающий', age: 20, height: 175, weight: 72, stats: { games: 5, goals: 2, assists: 2 } },
+    { number: 33, name: 'Smirnov', position: 'Вратарь', age: 25, height: 190, weight: 88, stats: { games: 3, wins: 1, saves: 65 } },
+    { number: 8, name: 'Kozlov', position: 'Нападающий', age: 21, height: 179, weight: 76, stats: { games: 4, goals: 3, assists: 1 } }
+  ];
+
   const standings = [
     { place: 1, team: 'Красная Армия', games: 10, wins: 8, winsOT: 0, lossesOT: 1, losses: 1, goalsFor: 23, goalsAgainst: 9, points: 17 },
     { place: 2, team: 'Тюменский Легион', games: 11, wins: 6, winsOT: 1, lossesOT: 0, losses: 3, goalsFor: 24, goalsAgainst: 11, points: 16 },
@@ -115,6 +128,7 @@ const Index = () => {
           <div className="flex justify-center gap-2 py-4 flex-wrap">
             {[
               { id: 'team', label: 'Команда', icon: 'Users' },
+              { id: 'players', label: 'Игроки', icon: 'UserCircle' },
               { id: 'schedule', label: 'Расписание', icon: 'Calendar' },
               { id: 'standings', label: 'Турнирная таблица', icon: 'BarChart3' },
               { id: 'news', label: 'Новости', icon: 'Newspaper' },
@@ -196,6 +210,91 @@ const Index = () => {
                           </div>
                         </>
                       )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {activeSection === 'players' && (
+          <div className="animate-fade-in">
+            <h2 className={`text-5xl font-bold mb-8 text-center ${isDarkTheme ? 'text-white' : ''}`}>Игроки</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {allPlayers.map((player) => (
+                <Card 
+                  key={player.number}
+                  className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-t-primary overflow-hidden"
+                >
+                  <CardHeader className="bg-gradient-to-br from-primary via-primary/90 to-secondary text-white pb-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border-2 border-white/30">
+                        <span className="text-4xl font-bold">{player.number}</span>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold mb-1">{player.name}</h3>
+                        <Badge className="bg-white/30 hover:bg-white/40 border-white/30">
+                          {player.position}
+                        </Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-4">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center py-2 border-b">
+                        <span className="text-muted-foreground flex items-center gap-2">
+                          <Icon name="Cake" size={16} />
+                          Возраст:
+                        </span>
+                        <span className="font-semibold">{player.age} лет</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b">
+                        <span className="text-muted-foreground flex items-center gap-2">
+                          <Icon name="Ruler" size={16} />
+                          Рост:
+                        </span>
+                        <span className="font-semibold">{player.height} см</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b">
+                        <span className="text-muted-foreground flex items-center gap-2">
+                          <Icon name="Weight" size={16} />
+                          Вес:
+                        </span>
+                        <span className="font-semibold">{player.weight} кг</span>
+                      </div>
+                      <div className="pt-2 mt-2 border-t-2 border-primary/20">
+                        <p className="text-sm font-semibold text-primary mb-2">Статистика сезона:</p>
+                        <div className="space-y-1">
+                          <div className="flex justify-between">
+                            <span className="text-sm text-muted-foreground">Игры:</span>
+                            <span className="font-semibold">{player.stats.games}</span>
+                          </div>
+                          {player.position === 'Вратарь' ? (
+                            <>
+                              <div className="flex justify-between">
+                                <span className="text-sm text-muted-foreground">Победы:</span>
+                                <span className="font-semibold">{player.stats.wins}</span>
+                              </div>
+                              <div className="flex justify-between">
+                                <span className="text-sm text-muted-foreground">% Отражений:</span>
+                                <span className="font-semibold">{player.stats.saves}%</span>
+                              </div>
+                            </>
+                          ) : (
+                            <>
+                              <div className="flex justify-between">
+                                <span className="text-sm text-muted-foreground">Голы:</span>
+                                <span className="font-semibold">{player.stats.goals}</span>
+                              </div>
+                              <div className="flex justify-between">
+                                <span className="text-sm text-muted-foreground">Передачи:</span>
+                                <span className="font-semibold">{player.stats.assists}</span>
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
