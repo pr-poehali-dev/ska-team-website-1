@@ -38,6 +38,10 @@ const Index = () => {
     { number: 8, name: 'Kozlov', position: 'Нападающий', age: 21, height: 179, weight: 76, stats: { games: 4, goals: 3, assists: 1 } }
   ];
 
+  const gamePhotos = [
+    { id: 1, url: 'https://cdn.poehali.dev/files/4a8e9ae1-08db-4343-8aa1-b25ad5210ba8.png', title: 'Командное фото на льду', date: '2025-10-19' }
+  ];
+
   const standings = [
     { place: 1, team: 'Красная Армия', games: 10, wins: 8, winsOT: 0, lossesOT: 1, losses: 1, goalsFor: 23, goalsAgainst: 9, points: 17 },
     { place: 2, team: 'Тюменский Легион', games: 11, wins: 6, winsOT: 1, lossesOT: 0, losses: 3, goalsFor: 24, goalsAgainst: 11, points: 16 },
@@ -129,6 +133,7 @@ const Index = () => {
             {[
               { id: 'team', label: 'Команда', icon: 'Users' },
               { id: 'players', label: 'Игроки', icon: 'UserCircle' },
+              { id: 'photos', label: 'Фотографии с игр', icon: 'Camera' },
               { id: 'schedule', label: 'Расписание', icon: 'Calendar' },
               { id: 'standings', label: 'Турнирная таблица', icon: 'BarChart3' },
               { id: 'news', label: 'Новости', icon: 'Newspaper' },
@@ -296,6 +301,39 @@ const Index = () => {
                         </div>
                       </div>
                     </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {activeSection === 'photos' && (
+          <div className="animate-fade-in">
+            <h2 className={`text-5xl font-bold mb-8 text-center ${isDarkTheme ? 'text-white' : ''}`}>Фотографии с игр</h2>
+            <div className="grid grid-cols-1 gap-8">
+              {gamePhotos.map((photo) => (
+                <Card 
+                  key={photo.id}
+                  className="overflow-hidden hover:shadow-2xl transition-all duration-300"
+                >
+                  <CardHeader className="bg-gradient-to-r from-primary to-secondary text-white">
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="flex items-center gap-2">
+                        <Icon name="Camera" size={24} />
+                        {photo.title}
+                      </CardTitle>
+                      <Badge className="bg-white/30 hover:bg-white/40">
+                        {new Date(photo.date).toLocaleDateString('ru-RU')}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <img 
+                      src={photo.url} 
+                      alt={photo.title}
+                      className="w-full h-auto object-cover"
+                    />
                   </CardContent>
                 </Card>
               ))}
