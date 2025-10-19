@@ -24,7 +24,6 @@ const Index = () => {
     { number: 7, name: 'F', position: 'Нападающий', age: 23, height: 178, weight: 75, stats: { games: 5, goals: 4, assists: 3 } },
     { number: 17, name: 'max', position: 'Нападающий', age: 19, height: 176, weight: 73, stats: { games: 5, goals: 1, assists: 0 } },
     { number: 97, name: 'vasilev', position: 'Нападающий', age: 22, height: 183, weight: 81, stats: { games: 2, goals: 1, assists: 1 } },
-    { number: 24, name: 'Ivanov', position: 'Защитник', age: 24, height: 188, weight: 85, stats: { games: 4, goals: 0, assists: 3 } },
     { number: 91, name: 'dangel', position: 'Нападающий', age: 25, height: 190, weight: 88, stats: { games: 2, goals: 0, assists: 0 } },
     { number: 96, name: 'rundya', position: 'Нападающий', age: 21, height: 179, weight: 76, stats: { games: 2, goals: 0, assists: 1 } }
   ]);
