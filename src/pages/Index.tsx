@@ -27,7 +27,7 @@ const Index = () => {
     { number: 24, name: 'Ivanov', position: 'Защитник', age: 24, height: 188, weight: 85, stats: { games: 4, goals: 0, assists: 3 } },
     { number: 91, name: 'Petrov', position: 'Нападающий', age: 20, height: 175, weight: 72, stats: { games: 5, goals: 2, assists: 2 } },
     { number: 33, name: 'Smirnov', position: 'Вратарь', age: 25, height: 190, weight: 88, stats: { games: 3, wins: 1, saves: 65 } },
-    { number: 8, name: 'Kozlov', position: 'Нападающий', age: 21, height: 179, weight: 76, stats: { games: 4, goals: 3, assists: 1 } }
+    { number: 96, name: 'rundya', position: 'Нападающий', age: 21, height: 179, weight: 76, stats: { games: 2, goals: 0, assists: 1 } }
   ]);
 
   useEffect(() => {
