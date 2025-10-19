@@ -97,7 +97,10 @@ const Index = () => {
     { place: 18, team: 'Алмаз', games: 9, wins: 0, winsOT: 0, lossesOT: 0, losses: 9, goalsFor: 5, goalsAgainst: 31, points: 0 }
   ];
 
-  const schedule: { opponent: string; location: string; time: string }[] = [];
+  const schedule = [
+    { date: '2025-10-23', opponent: 'Кузнецкие Медведи', location: 'Home', time: '18:00' },
+    { date: '2025-10-24', opponent: 'Алмаз', location: 'Home', time: '18:00' }
+  ];
 
   const news = [
     {
