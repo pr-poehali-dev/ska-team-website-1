@@ -98,8 +98,12 @@ const Index = () => {
   ];
 
   const schedule = [
+    { date: '2025-10-23', opponent: 'Спартак', location: 'Away', time: '18:00' },
     { date: '2025-10-23', opponent: 'Кузнецкие Медведи', location: 'Home', time: '18:00' },
-    { date: '2025-10-24', opponent: 'Алмаз', location: 'Home', time: '18:00' }
+    { date: '2025-10-24', opponent: 'Алмаз', location: 'Home', time: '18:00' },
+    { date: '2025-10-27', opponent: 'Тюменский Легион', location: 'Away', time: '18:00' },
+    { date: '2025-10-30', opponent: 'Чайка', location: 'Home', time: '18:00' },
+    { date: '2025-10-30', opponent: 'Мамонты Югры', location: 'Away', time: '18:00' }
   ];
 
   const news = [
