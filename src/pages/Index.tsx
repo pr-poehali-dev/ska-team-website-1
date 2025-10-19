@@ -281,58 +281,35 @@ const Index = () => {
                   </CardHeader>
                   <CardContent className="pt-4">
                     <div className="space-y-3">
-                      <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-muted-foreground flex items-center gap-2">
-                          <Icon name="Cake" size={16} />
-                          Возраст:
-                        </span>
-                        <span className="font-semibold">{player.age} лет</span>
-                      </div>
-                      <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-muted-foreground flex items-center gap-2">
-                          <Icon name="Ruler" size={16} />
-                          Рост:
-                        </span>
-                        <span className="font-semibold">{player.height} см</span>
-                      </div>
-                      <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-muted-foreground flex items-center gap-2">
-                          <Icon name="Weight" size={16} />
-                          Вес:
-                        </span>
-                        <span className="font-semibold">{player.weight} кг</span>
-                      </div>
-                      <div className="pt-2 mt-2 border-t-2 border-primary/20">
-                        <p className="text-sm font-semibold text-primary mb-2">Статистика сезона:</p>
-                        <div className="space-y-1">
-                          <div className="flex justify-between">
-                            <span className="text-sm text-muted-foreground">Игры:</span>
-                            <span className="font-semibold">{player.stats.games}</span>
-                          </div>
-                          {player.position === 'Вратарь' ? (
-                            <>
-                              <div className="flex justify-between">
-                                <span className="text-sm text-muted-foreground">Победы:</span>
-                                <span className="font-semibold">{player.stats.wins}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-sm text-muted-foreground">% Отражений:</span>
-                                <span className="font-semibold">{player.stats.saves}%</span>
-                              </div>
-                            </>
-                          ) : (
-                            <>
-                              <div className="flex justify-between">
-                                <span className="text-sm text-muted-foreground">Голы:</span>
-                                <span className="font-semibold">{player.stats.goals}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-sm text-muted-foreground">Передачи:</span>
-                                <span className="font-semibold">{player.stats.assists}</span>
-                              </div>
-                            </>
-                          )}
+                      <p className="text-sm font-semibold text-primary mb-2">Статистика сезона:</p>
+                      <div className="space-y-1">
+                        <div className="flex justify-between">
+                          <span className="text-sm text-muted-foreground">Игры:</span>
+                          <span className="font-semibold">{player.stats.games}</span>
                         </div>
+                        {player.position === 'Вратарь' ? (
+                          <>
+                            <div className="flex justify-between">
+                              <span className="text-sm text-muted-foreground">Победы:</span>
+                              <span className="font-semibold">{player.stats.wins}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-sm text-muted-foreground">% Отражений:</span>
+                              <span className="font-semibold">{player.stats.saves}%</span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="flex justify-between">
+                              <span className="text-sm text-muted-foreground">Голы:</span>
+                              <span className="font-semibold">{player.stats.goals}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-sm text-muted-foreground">Передачи:</span>
+                              <span className="font-semibold">{player.stats.assists}</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
                   </CardContent>
